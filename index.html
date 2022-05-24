@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Fashion Store</title>
+    <link rel="shortcut icon" href="images/logo2.webp">
+    <style>
+* {
+    margin:0 ;
+    padding: 0;
+    font-family:'Poppins', sans-serif ;
+}
+.hero {
+    width: 100%;
+    min-height: 100vh;
+}
+.nav {
+    width: 100%;
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+}
+.logo {
+    flex: 1;
+}
+.logo image{
+    width: 170px;
+    cursor: pointer;
+}
+.row{
+    display: flex;
+    width: 100%;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.col-1,.col-2{
+    flex-basis: 50%;
+    overflow: hidden;
+}
+.col-2 img {
+    width: 80%;
+}
+.col-1{
+    padding: 8% 5%;
+    position: relative;
+}
+.col-1 h1 {
+    font-size: 60px;
+    line-height: 80px ;
+    color: #333;
+}
+.col-1 p {
+    color: #777;
+    line-height: 22px;
+    margin: 15px 0 30px;
+}
+a input{
+    padding: 15px 40px;
+    border: 0;
+    outline: non;
+    border-radius: 25px;
+    background: #333;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 10px 10px rgb(0,0,0,0.2);
+}
+ul{
+    position: absolute;
+    bottom: 30px;
+}
+ul li {
+    list-style: none;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background: #bfbfbf;
+    border-radius: 50%;
+    margin-right: 15px;
+    cursor: pointer;
+}
+ul .active {
+    background: #333;
+}
+.zoom {
+    animation: zoomout 0.5s linear 1;
+}
+@keyframes zoomout {
+    0%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <div class="logo">
+                <img src= "images/logo.jpg">
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-1">
+            <h1> Welcom To<br>Our Fashion Shope</h1>
+            <p> You can see the summer collection, discounts and offers, just enter your data and go on online shopping</p>
+            <a href="Form.html" target="_blank">
+                <input type="submit" value="Sign Up">
+            </a>
+            <ul>
+                <li class="btn active"></li>
+                <li class="btn"></li>
+                <li class="btn"></li>
+            </ul>
+            </div>
+            <div class="col-2">
+            <img src="images/backgroundp1.jpeg" id="banner">
+            </div>
+        </div>
+    </div>
+    <script>
+    let btn = document.getElementsByClassName("btn");
+    let banner = document.getElementById("banner");
+    btn[0].onclick = function(){
+        banner.src="images/backgroundp1.jpeg";
+        animation();
+        this.classList.add("active");
+    }
+    btn[1].onclick = function(){
+        banner.src="images/backgroundp2.jpeg";
+       animation();
+       this.classList.add("active");
+    }
+    btn[2].onclick = function(){
+        banner.src="images/backgroundp3.jpeg";
+        animation();
+        this.classList.add("active");
+    }
+    function animation (){
+        banner.classList.add("zoom");
+        setTimeout(function(){
+            banner.classList.remove("zoom");
+        },500);
+        for (b of btn){
+            b.classList.remove("active")
+        }
+    }
+
+    </script>
+
+</body>
+</html>
